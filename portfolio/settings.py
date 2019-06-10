@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jobs.apps.JobsConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +77,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_db',
+        'USER': 'postgres',
+        'PASSWORD': os.environ['bs_password'],
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -117,4 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+#these are not variables
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_URL = '/assets/'
