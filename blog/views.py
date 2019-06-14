@@ -1,11 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Blog
-
-
-
-def show_blogs(request):
-    blogs = Blog.objects.all()
-    return render(request, 'blog/blog.html', {'blogs': blogs})
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def detail(request, blog_id):
@@ -14,4 +10,55 @@ def detail(request, blog_id):
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title':'About Page'})
+    return render(request, 'blog/about.html', {'title': 'About Page'})
+
+
+class PostListViews(ListView):
+    model = Blog
+    template_name = 'blog/blog.html'
+    # blogs will be the name containing all of the iterable objects
+    context_object_name = 'blogs'
+    # ascending is ['date_posted'] . descending is ['-date_posted']
+    ordering = ['-pub_date']
+    paginate_by = 5
+
+
+
+class PostDetailViews(DetailView):
+    model = Blog
+    template_name = 'blog/details.html'
+
+
+class PostCreateViews(LoginRequiredMixin, CreateView):
+    model = Blog
+    template_name = 'blog/blog_form.html'
+    fields = ['title', 'body']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class PostUpdateViews(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Blog
+    template_name = 'blog/blog_form.html'
+    fields = ['title', 'body']
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
+
+
+class PostDeleteViews(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Blog
+    success_url = '/'
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
+        

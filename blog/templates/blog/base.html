@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{%static 'blog/main.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     {% if title %}
     <title>Blog page - {{title}}</title>
     {% else %}
@@ -19,11 +19,17 @@
     {% endif %}
 </head>
 
-<body>
+<body class="mt-5" style="background-color: rgb(51, 125, 136);">
+    <div class="row mb-3"
+        style="width:100%; height: 100%; margin: 0px; height: 150px; background-size: 100% 100%;  background-image: url('{% static 'blog/sea.png' %}');">
+        <div class="col d-flex align-items-center justify-content-center">
+            <img height=100px src=" {% static 'blog/sealWhite.png' %} ">
+        </div>
+    </div>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="/">Django Blog</a>
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top"     >
+            <div class="container" >
+                <a class="navbar-brand mr-4" href="/">Bad Seal Studios</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,15 +38,18 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'blog_blogs' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'blog_about' %}">About</a>
+                        <a class="nav-item nav-link" href="#">Projects</a>
+                        <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'blog_create' %}">Create a Post</a>
                         <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
-                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                         {% endif %}
                     </div>
                 </div>
@@ -74,7 +83,52 @@
             </div>
         </div>
     </main>
-
+    
+<div class="row" style="width:100%; background-color: #34DDDD; padding:0; margin:0;margin-right: 0; margin-left: 0; padding-bottom: 30px; padding-top: 30px; height:
+150; font-weight: bolder; font-size: 16px; font-family: Raleway;">
+<div class="col-md-4" style="padding-left:30px;" >
+  <a style="color: white;" href="{% url 'blog_blogs' %}">
+    Home
+  </a>&nbsp;|&nbsp;
+  <a style="color: white;" href="{% url 'blog_about' %}">
+    About
+  </a>&nbsp;|&nbsp;
+  <a style="color: white;" href="#">
+    Projects
+  </a>&nbsp;|&nbsp;
+  <a style="color: white;" href="#">
+    Resume
+  </a>&nbsp;|&nbsp;
+</div>
+<div class="col-sm-4">
+  <br>
+</div>
+<div class="col-md-4" style="text-align: right;padding-right:30px;">
+  <p>312-989-7342
+    <br> JohnCervantes@protonmail.com</p>
+  <a href="mailto:JohnCervantes@protonmail.com" target="_blank" style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/proton.png/' %}">
+  </a> &nbsp;
+  <a href="https://github.com/JohnCervantes" target="_blank" style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/github.png/' %}">
+  </a> &nbsp;
+  <a href="https://www.linkedin.com/in/j-cervantes/" target="_blank" style="cursor: pointer; text-decoration: none;">
+    <img border=0 style="text-decoration:none" height=30px src="{% static 'blog/linkedin.png/' %}">
+  </a> &nbsp;
+  <a href="https://www.youtube.com/channel/UCi98xvWCNg58r7ttwb-22ag?view_as=subscriber" target="_blank"  style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/youtube.png/' %}">
+  </a> &nbsp;
+  <a href="https://twitter.com/vocalistx" target="_blank" style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/twitter.png/' %}">
+  </a> &nbsp;
+  <a href="https://play.google.com/store/apps/developer?id=Bad+Seal+Studios" target="_blank"  style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/playStoreIcon.png/' %}">
+  </a> &nbsp;
+  <a href="#" style="cursor: pointer; text-decoration: none;">
+    <img border=0 height=30px src="{% static 'blog/appleStoreIcon.png/' %}">
+  </a>
+</div>
+</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -85,5 +139,4 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
