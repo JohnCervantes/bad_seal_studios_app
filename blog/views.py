@@ -27,6 +27,7 @@ class PostListViews(ListView):
 class PostDetailViews(DetailView):
     model = Blog
     template_name = 'blog/details.html'
+    
 
 
 class PostCreateViews(LoginRequiredMixin, CreateView):

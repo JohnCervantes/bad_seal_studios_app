@@ -22,7 +22,7 @@ from users import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', include('jobs.urls')),
+    path('projects/', include('jobs.urls')),
     path('', include('blog.urls')),
     #class based views
     #class based views pass a form dictionary to the template.

@@ -1,19 +1,21 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
-<article class="media content-section">
+<article class="media content-section pl-1">
     <img class="rounded-circle article-img" src="{{object.author.profile.image.url}}" />
     <div class="media-body">
         <div class="article-metadata">
-            <a class="mr-2" href="#">{{ object.author }}</a>
+            <small class="mr-2">Author: {{ object.author }}</small>
             <small class="text-muted">{{ object.pub_date }}</small>
             {% if object.author == user %}
-                <p style="float: right;"><a class="btn btn-secondary btn-sm mt-2 mb-2" href="{% url 'blog_update' object.id %}">Update Post</a> |
-                <a class="btn btn-danger btn-sm mt-2 mb-2" href="{% url 'blog_delete' object.id %}">Delete Post</a></p>
+                <p style="float: right;"><a class="btn btn-secondary btn-sm" href="{% url 'blog_update' object.id %}">Update Post</a> |
+                <a class="btn btn-danger btn-sm" href="{% url 'blog_delete' object.id %}">Delete Post</a></p>
             {% endif %}
         </div>
-        <h2 class="article-title">{{ oject.title }}</h2>
-        <p class="article-content pt-4">{{ object.body }}</p>
+        <p style="text-align:center;"><img width="90%" height="200px" src="{{object.image.url}}" alt="banner"> </p>
+        <h2>{{ object.title }}</h2>
+        <p class="pt-3">{{ object.body | safe }}</p>
     </div>
 </article>
 {% endblock content %}

@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 {%for blog in blogs %}
@@ -9,8 +10,8 @@
             <small class="mr-2">Author: {{ blog.author }}</small>
             <small style="float: right" class="text-muted">{{ blog.pub_date }}</small>
         </div>
-        <h2><a class="article-title" href="{% url 'blog_details' blog.id  %}">{{ blog.title }}</a></h2>
-        <p class="article-content">{{ blog.summary }}</p>
+        <h2><a style="font-family; Raleway;" class="article-title" href="{% url 'blog_details' blog.id  %}">{{ blog.title }}</a></h2>
+        <p class="article-content">{{ blog.summary | safe }}</p>
     </div>
 </article>
     {% endfor %}
