@@ -130,12 +130,12 @@ USE_TZ = True
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 STATICFILES_DIRS = [
-   os.path.join(SITE_ROOT, '/home/djangodeploy/badseal/static'),
-   os.path.join(SITE_ROOT, 'djangodeploy/badseal/static'),
-   os.path.join(SITE_ROOT, '/djangodeploy/badseal/static'),
-   os.path.join(SITE_ROOT, '/badseal/static'),
-   os.path.join(SITE_ROOT, 'badseal/static'),
-   os.path.join(SITE_ROOT, 'static')
+   os.path.join(BASE_DIR, '/home/djangodeploy/badseal/static'),
+   os.path.join(BASE_DIR, 'djangodeploy/badseal/static'),
+   os.path.join(BASE_DIR, '/djangodeploy/badseal/static'),
+   os.path.join(BASE_DIR, '/badseal/static'),
+   os.path.join(BASE_DIR, 'badseal/static'),
+   os.path.join(BASE_DIR, 'static')
 ]
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
