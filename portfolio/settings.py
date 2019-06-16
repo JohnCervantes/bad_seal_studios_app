@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_db',
         'USER': 'camilo',  #postgres
-        'PASSWORD': 'psyduck321',
+        'PASSWORD': '####',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -127,9 +127,9 @@ USE_TZ = True
 
 #these are not variables
 
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'portfolio/static/')
-#]
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, '/static/')
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
