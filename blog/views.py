@@ -4,10 +4,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-def detail(request, blog_id):
-    detail_blog = get_object_or_404(Blog, pk=blog_id)  # pk is primary key
-    return render(request, 'blog/details.html', {'blog': detail_blog, 'title': Blog.title})
-
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
@@ -22,11 +18,21 @@ class PostListViews(ListView):
     ordering = ['-pub_date']
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Blogs'
+        context['latest_news'] = Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]
+        return context
 
 
-class PostDetailViews(DetailView):
+
+class PostDetailViews(DetailView, ):
     model = Blog
     template_name = 'blog/details.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = Blog.objects.get(id=self.kwargs['pk']).title
+        return context
     
 
 
@@ -38,6 +44,10 @@ class PostCreateViews(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Create a Post'
+        return context
 
 
 class PostUpdateViews(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -51,6 +61,10 @@ class PostUpdateViews(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return False
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Update a Post'
+        return context
 
 
 class PostDeleteViews(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -62,4 +76,8 @@ class PostDeleteViews(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         else:
             return False
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Delete a Post'
+        return context
         

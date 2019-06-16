@@ -13,9 +13,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     {% if title %}
-    <title>Blog page - {{ title }}</title>
+    <title>Bad Seal Studios - {{ title }}</title>
     {% else %}
-    <title>Blog page</title>
+    <title>Bad Seal Studios</title>
     {% endif %}
 </head>
 
@@ -71,10 +71,14 @@
             {% if title != 'Projects' %}
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class='text-muted'>You can put any information here you'd like.
+                    <p class='text-muted'>
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Latest Posts</li>
+                            <li class="list-group-item list-group-item-light">Latest Posts</li>      
+                            {% for news in latest_news %}
+                            <br>  
+                            <a style="color:white;" href="{% url 'blog_details' news.id  %}"><h6><u>{{ news.title }}</u></h6></h6></a>                
+                            {% endfor %}  
+                            <br>
                             <li class="list-group-item list-group-item-light">Announcements</li>
                             <li class="list-group-item list-group-item-light">Calendars</li>
                             <li class="list-group-item list-group-item-light">etc</li>
