@@ -127,15 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 #these are not variables
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, '/home/djangodeploy/badseal/static'),
-   os.path.join(BASE_DIR, 'djangodeploy/badseal/static'),
-   os.path.join(BASE_DIR, '/djangodeploy/badseal/static'),
-   os.path.join(BASE_DIR, '/badseal/static'),
-   os.path.join(BASE_DIR, 'badseal/static'),
-   os.path.join(BASE_DIR, 'static')
+   '/home/djangodeploy/badseal/static/',
 ]
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
