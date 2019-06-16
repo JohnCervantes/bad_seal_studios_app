@@ -15,9 +15,9 @@ class PostListViews(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Projects'
-        context['count'] = Projects.objects.all().count()
-        context['complete'] = Projects.objects.filter(status='Complete').count()
-        context['in_progress'] = Projects.objects.filter(status='In Progress').count()
+        context['count'] = self.model.objects.all().count()
+        context['complete'] = self.model.objects.filter(status='Complete').count()
+        context['in_progress'] = self.model.objects.filter(status='In Progress').count()
         return context
 
 class PostDetailViews(DetailView):
