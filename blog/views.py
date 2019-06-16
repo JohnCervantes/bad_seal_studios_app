@@ -6,11 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def detail(request, blog_id):
     detail_blog = get_object_or_404(Blog, pk=blog_id)  # pk is primary key
-    return render(request, 'blog/details.html', {'blog': detail_blog})
+    return render(request, 'blog/details.html', {'blog': detail_blog, 'title': Blog.title})
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About Page'})
+    return render(request, 'blog/about.html', {'title': 'About'})
 
 
 class PostListViews(ListView):

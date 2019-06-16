@@ -13,7 +13,7 @@ class PostListViews(ListView):
     paginate_by = 6
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['count'] =  '30'
+        context['title'] = 'Projects'
 class PostDetailViews(DetailView):
     model = Projects
     template_name = 'jobs/project_detail.html'
