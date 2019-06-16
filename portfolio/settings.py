@@ -129,7 +129,7 @@ USE_TZ = True
 #these are not variables
 
 STATICFILES_DIRS = [
-   '/home/djangodeploy/badseal/static/',
+   os.path.join(BASE_DIR, 'static')
 ]
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
