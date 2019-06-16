@@ -127,9 +127,10 @@ USE_TZ = True
 
 #these are not variables
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'portfolio/static/')
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'portfolio/static/')
+#]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
