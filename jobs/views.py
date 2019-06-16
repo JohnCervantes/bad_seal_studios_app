@@ -11,11 +11,10 @@ class PostListViews(ListView):
     # ascending is ['date_posted'] . descending is ['-date_posted']
     ordering = ['-date_posted']
     paginate_by = 6
-    def get_context_data(self, **kwargs , ):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Projects'
-        context['count'] =  self.model.objects.all().count()
-
+        context['count'] =  30
 class PostDetailViews(DetailView):
     model = Projects
     template_name = 'jobs/project_detail.html'
