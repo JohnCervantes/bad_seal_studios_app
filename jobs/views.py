@@ -14,7 +14,7 @@ class PostListViews(ListView):
     def get_context_data(self, **kwargs , ):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Projects'
-        context['count'] =  Projects.objects.count()
+        context['count'] =  Projects.objects.all().count()
 
 class PostDetailViews(DetailView):
     model = Projects
