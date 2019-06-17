@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Projects
-import models.Blog as Blog
+import blog.models as Blog
 from django.views.generic import ListView, DetailView
 
 
