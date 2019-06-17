@@ -24,7 +24,6 @@ class PostListViews(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by('-pub_date').values('title','id')[0:3]
-        context['test'] = os.system("setenv") 
         return context
 
 
