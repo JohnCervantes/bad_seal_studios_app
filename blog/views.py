@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+import os
 
 
 
@@ -18,10 +19,12 @@ class PostListViews(ListView):
     ordering = ['-pub_date']
     paginate_by = 5
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by('-pub_date').values('title','id')[0:3]
+        context['test'] = os.system("setenv")
         return context
 
 

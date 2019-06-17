@@ -77,8 +77,6 @@ WSGI_APPLICATION =  'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-print( os.system("setenv"))
-print( 'hi')
 
 DATABASES = {
     'default': {
