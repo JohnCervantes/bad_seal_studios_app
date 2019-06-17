@@ -13,7 +13,7 @@ class PostListViews(ListView):
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(PostListViews,self).get_context_data(**kwargs)
         context['title'] = 'Projects'
         context['count'] = self.model.objects.all().count()
         context['complete'] = self.model.objects.filter(status='Complete').count()
