@@ -19,10 +19,10 @@ class PostListViews(ListView):
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['latest_news'] = Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]
+        context = super(PostListViews, self).get_context_data(**kwargs)
         context['title'] = 'Blog'
-        context['test'] = 'hjgjgghjgh'
+        context['latest_news'] = self.model.objects.all().order_by('-pub_date').values('title','id')[0:3]
+       
         return context
 
 
