@@ -13,6 +13,7 @@
                 <a class="btn btn-danger btn-sm" href="{% url 'blog_delete' object.id %}">Delete Post</a></p>
             {% endif %}
         </div>
+        <br>
         {% if object.image %}<p style="text-align:center;"><img width="90%" height="200px" src="{{object.image.url}}" alt="banner"> </p> {% endif %}
         <h2>{{ object.title }}</h2>
         <p class="pt-3">{{ object.body | safe }}</p>
