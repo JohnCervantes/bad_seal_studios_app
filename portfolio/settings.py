@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'portfolio_db',
         'USER': 'camilo',  #postgres or camilo
-        'PASSWORD': os.environ['$bs_password'], #os.environ['bs_password']
+        'PASSWORD': 'os.environ['$bs_password']', #os.environ['bs_password']
         'HOST': 'localhost',
         'PORT': '' #5432
     }
