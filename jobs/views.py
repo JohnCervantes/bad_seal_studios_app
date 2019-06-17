@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Projects
+import models.Blog as Blog
 from django.views.generic import ListView, DetailView
 
 
@@ -26,4 +27,5 @@ class PostDetailViews(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = Projects.objects.get(id=self.kwargs['pk']).title
+        context['latest_news'] = Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]
         return context

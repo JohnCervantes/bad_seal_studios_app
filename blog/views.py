@@ -26,7 +26,7 @@ class PostListViews(ListView):
 
 
 
-class PostDetailViews(DetailView, ):
+class PostDetailViews(DetailView):
     model = Blog
     template_name = 'blog/details.html'
     def get_context_data(self, **kwargs):
