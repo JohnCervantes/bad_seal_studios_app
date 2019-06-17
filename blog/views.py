@@ -32,6 +32,7 @@ class PostDetailViews(DetailView, ):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = Blog.objects.get(id=self.kwargs['pk']).title
+        context['latest_news'] = self.model.objects.all().order_by('-pub_date').values('title','id')[0:3]
         return context
     
 
