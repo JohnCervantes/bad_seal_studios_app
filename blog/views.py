@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About', 'context': Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]})
+    return render(request, 'blog/about.html', {'title': 'About', 'latest_news': Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]})
 
 
 class PostListViews(ListView):
