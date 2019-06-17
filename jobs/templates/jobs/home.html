@@ -7,6 +7,7 @@
 <div style="background-color: #ffffff; border: 1px solid #dddddd;
 border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bottom: 20px;">
     {% for project in projects %}
+    <h5 style="text-align: center; color:white">Count - {{ count }} &emsp; Complete - {{ complete }} &emsp;  In Pogress - {{ in_progress }}</h5>
     <div class="card mb-5" style="display:inline-block; width: 20rem; margin:10px">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 150px;" alt="Card image cap">
         <div class="card-body pt-1 ">
