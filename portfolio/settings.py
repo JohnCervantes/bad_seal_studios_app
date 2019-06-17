@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'portfolio_db',
         'USER': os.environ.get('BS_DB_USER'),  #postgres or camilo
         'PASSWORD': os.environ.get('BS_DB_PASSWORD'), #os.environ['bs_password']
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '' #5432
     }
 }
