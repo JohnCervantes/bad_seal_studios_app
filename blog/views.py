@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
+    return render(request, 'blog/about.html', {'title': 'About', 'context': Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]})
 
 
 class PostListViews(ListView):
@@ -15,7 +15,7 @@ class PostListViews(ListView):
     # blogs will be the name containing all of the iterable objects
     context_object_name = 'blogs'
     # ascending is ['date_posted'] . descending is ['-date_posted']
-    ordering = ['pub_date']
+    ordering = ['-pub_date']
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
