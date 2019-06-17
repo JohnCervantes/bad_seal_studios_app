@@ -26,6 +26,5 @@ class PostDetailViews(DetailView):
     template_name = 'jobs/project_detail.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = Projects.objects.get(id=self.kwargs['pk']).title
-        context['latest_news'] = Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]
+        context['title'] = 'Projects'
         return context
