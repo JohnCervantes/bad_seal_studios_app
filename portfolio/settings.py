@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'portfolio_db',
-        'USER': os.environ.get('BS_DB_USER'),  #postgres or camilo
-        'PASSWORD': os.environ.get('BS_DB_PASSWORD'), #os.environ['bs_password']
+        'USER': os.getenv('BS_DB_USER', 'prevfailed'),  #postgres or camilo os.environ.get('BS_DB_USER')
+        'PASSWORD': os.getenv('BS_DB_PASSWORD', 'prevfailed'), #os.environ['bs_password'] os.environ.get('BS_DB_PASSWORD')
         'HOST': 'localhost',
         'PORT': '' #5432
     }
