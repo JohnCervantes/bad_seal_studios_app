@@ -20,8 +20,9 @@ class PostListViews(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Blogs'
+        context['title'] = 'Blogppppp'
         context['latest_news'] = Blog.objects.all().order_by('-pub_date').values('title','id')[0:3]
+        context['test'] = 'hjgjgghjgh'
         return context
 
 
