@@ -27,7 +27,7 @@ SECRET_KEY = 't2g7in&wt&oqow(fn9elx)au3=i1g3j4!z9%*3!^9@0g2#gdin'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'badseal.com'] #'www.badseal.com', '157.230.226.195', 'badseal.com'
+ALLOWED_HOSTS = ['*'] #'www.badseal.com', '157.230.226.195', 'badseal.com'
 
 # Application definition
 
