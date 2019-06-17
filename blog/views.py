@@ -13,6 +13,7 @@ class PostListViews(ListView):
     model = Blog
     template_name = 'blog/blog.html'
     # blogs will be the name containing all of the iterable objects
+    context_object_name = 'blogs'
     # ascending is ['date_posted'] . descending is ['-date_posted']
     ordering = ['pub_date']
     paginate_by = 5
