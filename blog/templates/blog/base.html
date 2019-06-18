@@ -76,8 +76,8 @@
             <ul class="list-group">
               <li class="list-group-item list-group-item-light">Latest Posts</li>
               <ul>
+                  <br>
                 {% for news in latest_news %}
-                <br>
                 <li><a href="{% url 'blog_details' news.id  %}">
                     <p><u>{{ news.title }}</u></p>
                     </h6>
@@ -89,8 +89,8 @@
               <li class="list-group-item list-group-item-light">Calendars</li>
               <li class="list-group-item list-group-item-light">etc</li>
               <ul>
-                <li>
                   <br>
+                <li>     
                     <p>Leetcode solved problems:</p>
                     <div class="progress mt-0">
                       <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:{{ progress }}%;">{{ leet }}</div>
