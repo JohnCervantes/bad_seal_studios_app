@@ -56,9 +56,9 @@
       </div>
     </nav>
   </header>
-  <main role="main" class="container">
+  <main role="main" class="container" style="line-height: 1.5em; font-size: 16px; font-family: Roboto;">
     <div class="row" style="width: 100%; ">
-      <div style="line-height: 1.5em; font-size: 16px; font-family: Roboto;"
+      <div
         {% if title == 'About' or title == 'Blog'  %} class="col-md-8" {% else %} class="col-md-12" {% endif %}>
         {% if messages %}
         {% for message in messages%}
@@ -89,8 +89,8 @@
               <li class="list-group-item list-group-item-light">Calendars</li>
               <li class="list-group-item list-group-item-light">etc</li>
               <small>Leetcode solved problems:</small>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:{{ progress }}%; text-align:center;">{{ leet }}</div>
+                <div class="progress" style="text-align:center;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:{{ progress }}%;">{{ leet }}</div>
                 </div>
             </ul>
           </p>
