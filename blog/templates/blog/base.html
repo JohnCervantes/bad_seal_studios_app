@@ -88,12 +88,16 @@
               <li class="list-group-item list-group-item-light">Announcements</li>
               <li class="list-group-item list-group-item-light">Calendars</li>
               <li class="list-group-item list-group-item-light">etc</li>
-              <p>Leetcode solved problems:</p>
-                <div class="progress" style="text-align:center;">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:{{ progress }}%;"><p>{{ leet }}</p></div>
-                </div>
+              <ul>
+                <li>
+                    <p>Leetcode solved problems:</p>
+                    <div class="progress" style="text-align: center">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:{{ progress }}%;">{{ leet }}</div>
+                    </div>
+                </li>
+              </ul>   
             </ul>
-          </p>
+          </div>
         </div>
       </div>
       {% endif %}
