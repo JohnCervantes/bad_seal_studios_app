@@ -13,7 +13,7 @@ soup = BeautifulSoup(source, 'lxml')
 def about(request):
     source = requests.get(
         'https://myanimelist.net/anime/34134/One_Punch_Man_2nd_Season').text
-    self.soup = BeautifulSoup(source, 'lxml')
+    soup = BeautifulSoup(source, 'lxml')
     return render(request, 'blog/about.html', {'title': 'About', 'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3]})
 
 
@@ -27,7 +27,7 @@ class PostListViews(ListView):
     paginate_by = 5
     source = requests.get(
         'https://leetcode.com/vocalists/').text
-    self.soup = BeautifulSoup(source, 'lxml')
+    soup = BeautifulSoup(source, 'lxml')
     match = []
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
         self.match.append[x]
