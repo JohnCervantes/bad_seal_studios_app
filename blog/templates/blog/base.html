@@ -76,17 +76,22 @@
           <p class='text-muted'>
             <ul class="list-group">
               <li class="list-group-item list-group-item-light">Latest Posts</li>
-              {% for news in latest_news %}
-              <br>
-              <a href="{% url 'blog_details' news.id  %}">
-                <h6><u>{{ news.title }}</u></h6>
-                </h6>
-              </a>
-              {% endfor %}
+              <ul>
+                {% for news in latest_news %}
+                <br>
+                <li><a href="{% url 'blog_details' news.id  %}">
+                    <h6><u>{{ news.title }}</u></h6>
+                    </h6>
+                  </a></li>
+                {% endfor %}
+              </ul>
               <br>
               <li class="list-group-item list-group-item-light">Announcements</li>
               <li class="list-group-item list-group-item-light">Calendars</li>
               <li class="list-group-item list-group-item-light">etc</li>
+              <ul>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+              </ul>
             </ul>
           </p>
         </div>
