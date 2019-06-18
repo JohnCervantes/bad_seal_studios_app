@@ -9,8 +9,8 @@ border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bott
     {% for project in projects %}
     <div class="card mb-5" style="display:inline-block; width: 20rem; margin:10px">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
-        <div class="card-body pt-1 ">
-            <h5 class="card-title">{{ project.title }}</h4>
+        <div class="card-body pt-2 ">
+            <h5 class="card-title p-0">{{ project.title }}</h4>
                 <br>
                 <p class="card-text" style="height: 100px; text-align: left;">{{ project.summary | safe }}</p>
         </div>
