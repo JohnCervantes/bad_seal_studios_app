@@ -1,8 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="content-section">
-    <div class="media">
+<div class='mt-4 mb-5' style="background: #ffffff; margin: auto; padding: 20px;  width: 70%; border-radius: 3px;">
+  <div class="media">
       <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
       <div class="media-body">
         <h2 class="account-heading">{{user.username}}</h2>
