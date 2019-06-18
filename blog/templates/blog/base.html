@@ -75,7 +75,7 @@
           <p class='text-muted'>
             <ul class="list-group">
               <li class="list-group-item list-group-item-light">Latest Posts</li>
-              <ul>
+              <ul style="text-decoration: none;">
                   <br>
                 {% for news in latest_news %}
                 <li><a href="{% url 'blog_details' news.id  %}">
