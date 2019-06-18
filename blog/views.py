@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-import os
 
 
 
@@ -24,7 +23,6 @@ class PostListViews(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by('-pub_date').values('title','id')[0:3]
-        context['test'] = os.getenv('BS_DB_USER')
         return context
 
 
