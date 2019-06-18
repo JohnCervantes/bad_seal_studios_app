@@ -4,7 +4,6 @@
 <h1 style="text-align: center; color:white">Projects ({{ count }})</h1>
 <h6 style="text-align: center; color:white">Complete - {{ complete }} &emsp;  In Progress - {{ in_progress }}</h5>
 <br>
-<div style="background-color: #ffffff; border: 1px solid #dddddd;
 border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bottom: 20px;">
     {% for project in projects %}
     <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
@@ -21,7 +20,6 @@ border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bott
 
     </div>
     {% endfor %}
-</div>
 
 {% if is_paginated %}
 
