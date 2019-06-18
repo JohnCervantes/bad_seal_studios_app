@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from django.conf import settings
 from django.conf.urls.static import static
+from configparser import RawConfigParser
+config = RawConfigParser()
+config.read('/home/djangodeploy/settings.ini')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't2g7in&wt&oqow(fn9elx)au3=i1g3j4!z9%*3!^9@0g2#gdin'
+SECRET_KEY = config.get('section', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.badseal.com','badseal.com','157.230.226.195'] #'www.badseal.com', '157.230.226.195', 'badseal.com'
 
@@ -78,10 +81,7 @@ WSGI_APPLICATION =  'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-from configparser import RawConfigParser
 
-config = RawConfigParser()
-config.read('/home/djangodeploy/settings.ini')
 
 DATABASES = {
     'default': {
