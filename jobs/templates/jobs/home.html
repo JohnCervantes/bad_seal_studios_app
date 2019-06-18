@@ -8,13 +8,13 @@
 border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bottom: 20px;">
     {% for project in projects %}
     <div class="card mb-5" style="display:inline-block; width: 20rem; margin:10px">
-        <img class="card-img-top" src="{{project.image.url}}" style="height: 150px;" alt="Card image cap">
+        <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
         <div class="card-body pt-1 ">
             <h5 class="card-title">{{ project.title }}</h4>
                 <br>
                 <p class="card-text" style="height: 100px; text-align: left;">{{ project.summary | safe }}</p>
         </div>
-        <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong> <br>Status:
+        <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
             {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
                 href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
         </div>
