@@ -7,12 +7,12 @@
 <div style="background-color: #ffffff; border: 1px solid #dddddd;
 border-radius: 3px; text-align:center; margin:0px; padding-top:30px; margin-bottom: 20px;">
     {% for project in projects %}
-    <div class="card mb-5" style="height: 600px; display:inline-block; width: 20rem; margin:10px">
+    <div class="card mb-5" style="display:inline-block; width: 20rem; margin:10px">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 150px;" alt="Card image cap">
         <div class="card-body pt-1 ">
             <h5 class="card-title">{{ project.title }}</h4>
                 <br>
-                <p class="card-text" style="text-align: left;">{{ project.summary | safe }}</p>
+                <p class="card-text" style="height: 400px; text-align: left;">{{ project.summary | safe }}</p>
         </div>
         <div class="card-footer text-muted pb-3 pt-2 pl-0 pr-0"><strong>{{project.technologies}}</strong> <br>Status:
             {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
