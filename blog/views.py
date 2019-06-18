@@ -5,16 +5,25 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from bs4 import BeautifulSoup
 import requests
 
-source = requests.get(
-    'https://myanimelist.net/anime/34134/One_Punch_Man_2nd_Season').text
-soup = BeautifulSoup(source, 'lxml')
 
 
 def about(request):
     source = requests.get(
-        'https://myanimelist.net/anime/34134/One_Punch_Man_2nd_Season').text
+        'https://leetcode.com/vocalists/').text
     soup = BeautifulSoup(source, 'lxml')
-    return render(request, 'blog/about.html', {'title': 'About', 'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3]})
+    match = []
+    for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
+        match.append(x)
+    values = match[1].split()
+    context = {
+        'leet': self.match[1].text,
+        'leet_solved':  values[0],
+        'leet_total':  values[-1],
+        'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
+        'title':'About'
+    }
+    
+    return render(request, 'blog/about.html', context)
 
 
 class PostListViews(ListView):
@@ -30,14 +39,17 @@ class PostListViews(ListView):
     soup = BeautifulSoup(source, 'lxml')
     match = []
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
-        match.append[x]
+        match.append(x)
+    values = match[1].split()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by(
             '-pub_date').values('title', 'id')[0:3]
-        context['leet'] = self.match[1]
+        context['leet'] = self.match[1].text
+        context['leet_solved'] = values[0]
+        context['leet_total'] = values[-1]
         return context
 
 
