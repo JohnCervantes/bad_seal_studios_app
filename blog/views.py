@@ -34,8 +34,7 @@ class PostListViews(ListView):
     # ascending is ['date_posted'] . descending is ['-date_posted']
     ordering = ['-pub_date']
     paginate_by = 5
-    source = requests.get(
-        'https://leetcode.com/vocalists/').text
+    source = requests.get('https://leetcode.com/vocalists/').text
     soup = BeautifulSoup(source, 'lxml')
     match = []
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
