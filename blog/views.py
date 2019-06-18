@@ -40,6 +40,7 @@ class PostListViews(ListView):
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
         match.append(x.text)
     values = match[1].split()
+    progress = str( int(match[0])/int(match[-1]) * 100 )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -47,8 +48,7 @@ class PostListViews(ListView):
         context['latest_news'] = self.model.objects.all().order_by(
             '-pub_date').values('title', 'id')[0:3]
         context['leet'] = self.match[1]
-        context['leet_solved'] = self.values[0]
-        context['leet_total'] = self.values[-1]
+        context['progress'] = self.progress
         return context
 
 
