@@ -69,7 +69,7 @@
                 {{ test }}
                 {% block content %}{% endblock %}
             </div>
-            {% if title != 'Projects' %}
+            {% if title != 'Projects' or title != 'Login' and title != 'Logout' or title != 'Register' or title != 'Profile'  %}
             <div class="col-md-4">
                 <div class="content-section">
                     <p class='text-muted'>
