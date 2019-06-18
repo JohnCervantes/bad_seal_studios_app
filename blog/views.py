@@ -13,10 +13,10 @@ def about(request):
     soup = BeautifulSoup(source, 'lxml')
     match = []
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
-        match.append(x)
+        match.append(x.text)
     values = match[1].split()
     context = {
-        'leet': self.match[1].text,
+        'leet': self.match[1],
         'leet_solved':  values[0],
         'leet_total':  values[-1],
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
