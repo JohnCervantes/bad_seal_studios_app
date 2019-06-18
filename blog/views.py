@@ -46,7 +46,7 @@ class PostListViews(ListView):
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by(
             '-pub_date').values('title', 'id')[0:3]
-        context['leet'] = self.match[1].text
+        context['leet'] = match[1]
         context['leet_solved'] = values[0]
         context['leet_total'] = values[-1]
         return context
