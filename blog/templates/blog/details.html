@@ -14,7 +14,8 @@
             {% endif %}
         </div>
         <br>
-        {% if object.image %}<p style="text-align:center;"><img width="90%" height="200px" src="{{object.image.url}}" alt="banner"> </p> {% endif %}
+        {% if object.image %}<p style="text-align:center;"><img width="80%" height="200px" src="{{object.image.url}}" alt="banner"> </p> {% endif %}
+        <br>
         <h2>{{ object.title }}</h2>
         <p class="pt-3">{{ object.body | safe }}</p>
     </div>
