@@ -13,10 +13,8 @@ soup = BeautifulSoup(source, 'lxml')
 def about(request):
     source = requests.get(
         'https://myanimelist.net/anime/34134/One_Punch_Man_2nd_Season').text
-
-
-soup = BeautifulSoup(source, 'lxml')
-return render(request, 'blog/about.html', {'title': 'About', 'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3]})
+    soup = BeautifulSoup(source, 'lxml')
+    return render(request, 'blog/about.html', {'title': 'About', 'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3]})
 
 
 class PostListViews(ListView):
