@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'portfolio_db',
-        'USER': 'camilo', #os.environ.get('BS_DB_USER')
+        'USER': 'camilo', # os.environ.get('BS_DB_USER')
         'PASSWORD': 'psyduck321', #os.environ.get('BS_DB_PASSWORD')
         'HOST': 'localhost',
         'PORT': '' #5432
