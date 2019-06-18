@@ -40,7 +40,7 @@ class PostListViews(ListView):
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
         match.append(x.text)
     values = match[1].split()
-    progress = str( int(match[0])/int(match[-1]) * 100 )
+    progress = str( (int(values[0]) / int(values[-1])) * 100 )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
