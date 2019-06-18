@@ -8,17 +8,16 @@ import requests
 
 
 def about(request):
-    source = requests.get(
-        'https://leetcode.com/vocalists/').text
+     source = requests.get('https://leetcode.com/vocalists/').text
     soup = BeautifulSoup(source, 'lxml')
     match = []
     for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
         match.append(x.text)
     values = match[1].split()
+    progress = str( (int(values[0]) / int(values[-1])) * 100 )
     context = {
-        'leet': self.match[1],
-        'leet_solved':  values[0],
-        'leet_total':  values[-1],
+        'leet': match[1],
+        'progress':  progress,
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
         'title':'About'
     }
