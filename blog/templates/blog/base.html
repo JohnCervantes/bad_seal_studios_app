@@ -70,7 +70,7 @@
         {% block content %}{% endblock %}
       </div>
       {% if title == 'About' or title == 'Blog'  %}
-      <div class="col-md-4" style="color: black; padding: 5px;" >
+      <div class="col-md-4" style="color: black; padding-top: 25px;  padding-bottom: 25px;" >
         <div class="content-section" style="text-decoration: none;">
             <ul class="list-group">
               <li class="list-group-item list-group-item-light">Latest Posts</li>
@@ -90,15 +90,20 @@
               <ul>
                   <br>
                 <li>     
-                    <p><a href="https://leetcode.com/vocalists/"> Leetcode Profile:</a></p>
+                    <p><a href="https://leetcode.com/vocalists/" target="_blank" > Leetcode Profile:</a></p>
                       <div class="progress position-relative mr-4">
                           <div class="progress-bar" role="progressbar" style="width: {{ progress }}0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                           <small class="justify-content-center d-flex position-absolute w-100">{{ leet }}</small>
-                          <p>Solved problems</p>
                       </div>
-                    </div>
                     <br>
+                    <p>Solved problems</p>
                 </li>
+                <li>     
+                  <p><a href="https://leetcode.com/vocalists/" target="_blank" > HackerRank Profile:</a></p>
+                    <p>{{ values }}</p>
+                  <br>
+                  <p>Solved problems</p>
+              </li>
               </ul>   
             </ul>
           </div>

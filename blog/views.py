@@ -41,6 +41,14 @@ class PostListViews(ListView):
     values = match[1].split()
     progress = str( (int(values[0]) / int(values[-1])) * 100 )
 
+    source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
+    soup = BeautifulSoup(source, 'lxml')
+    match = []
+    for x in soup.find_all("div", {"class": "badges-wrap"}):
+        match.append(x.text)
+    values = match
+  
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Blog'
@@ -48,6 +56,7 @@ class PostListViews(ListView):
             '-pub_date').values('title', 'id')[0:3]
         context['leet'] = self.match[1]
         context['progress'] = self.progress
+         context['values'] = self.values
         return context
 
 
