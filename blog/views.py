@@ -45,7 +45,7 @@ class PostListViews(ListView):
     soup = BeautifulSoup(source, 'lxml')
     match2 = []
     for x in soup.find_all("div", {"class": "badges-wrap"}):
-        match2.append(x.text)
+        match2.append(x)
     values = match2
   
 
