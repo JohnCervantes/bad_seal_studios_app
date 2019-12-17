@@ -95,15 +95,13 @@
                           <div class="progress-bar" role="progressbar" style="width: {{ progress }}0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                           <small class="justify-content-center d-flex position-absolute w-100">{{ leet }}</small>
                       </div>
-                    <br>
-                    <p style="text-align: center;">Solved problems</p>
+                    <p style="text-align: center; font-weight: bolder;">Solved problems</p>
                 </li>
                 <li>     
                   <p><a href="https://leetcode.com/vocalists/" target="_blank" > HackerRank Profile:</a></p>
-                  <p>Badges</p>
+                  <p style="text-align: center; font-weight: bolder;">Badges</p>
                   <br>
-                    <p>{{ values | safe }}</p>
-                
+                    <div  class="container" style="text-align: center;">{{ values | safe }}</div>
               </li>
               </ul>   
             </ul>
