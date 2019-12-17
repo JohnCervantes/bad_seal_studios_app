@@ -43,10 +43,10 @@ class PostListViews(ListView):
 
     source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
     soup = BeautifulSoup(source, 'lxml')
-    match = []
+    match2 = []
     for x in soup.find_all("div", {"class": "badges-wrap"}):
-        match.append(x.text)
-    values = match
+        match2.append(x.text)
+    values = match2
   
 
     def get_context_data(self, **kwargs):
