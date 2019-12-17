@@ -56,7 +56,7 @@ class PostListViews(ListView):
             '-pub_date').values('title', 'id')[0:3]
         context['leet'] = self.match[1]
         context['progress'] = self.progress
-         context['values'] = self.values
+        context['values'] = self.values
         return context
 
 
