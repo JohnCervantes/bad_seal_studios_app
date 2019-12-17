@@ -96,13 +96,14 @@
                           <small class="justify-content-center d-flex position-absolute w-100">{{ leet }}</small>
                       </div>
                     <br>
-                    <p>Solved problems</p>
+                    <p style="text-align: center;">Solved problems</p>
                 </li>
                 <li>     
                   <p><a href="https://leetcode.com/vocalists/" target="_blank" > HackerRank Profile:</a></p>
-                    <p>{{ values }}</p>
+                  <p>Badges</p>
                   <br>
-                  <p>Solved problems</p>
+                    <p>{{ values | safe }}</p>
+                
               </li>
               </ul>   
             </ul>
