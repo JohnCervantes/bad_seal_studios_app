@@ -46,7 +46,7 @@ class PostListViews(ListView):
     match2 = []
     for x in soup.find_all("div", {"class": "badges-wrap"}):
         match2.append(x)
-    values = match2
+    values = match2[0]
   
 
     def get_context_data(self, **kwargs):
