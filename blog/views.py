@@ -22,14 +22,14 @@ def about(request):
     match2 = []
     for x in soup.find_all("div", {"class": "badges-wrap"}):
         match2.append(x)
-    values = str(match2[0])
+    values2 = str(match2[0])
 
     context = {
+        'values': values2,
         'leet': match[1],
         'progress':  progress,
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
-        'title':'About',
-        'values': values
+        'title':'About'
     }
     
     return render(request, 'blog/about.html', context)
