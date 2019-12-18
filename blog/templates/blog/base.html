@@ -17,6 +17,21 @@
   {% else %}
   <title>Bad Seal Studios</title>
   {% endif %}
+  <style>
+  
+  .hacker-badge {
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 20px;
+    width: 100px;
+}
+
+.ui-badge .badge-title {
+    text-anchor: middle;
+}
+
+  
+  </style>
 </head>
 
 <body class="mt-5" style="background-color: rgb(51, 125, 136);">
@@ -97,11 +112,12 @@
                       </div>
                     <p style="text-align: center; font-weight: bolder;">Solved problems</p>
                 </li>
+                <br>
                 <li>     
                   <p><a href="https://leetcode.com/vocalists/" target="_blank" > HackerRank Profile:</a></p>
                   <p style="text-align: center; font-weight: bolder;">Badges</p>
                   <br>
-                    <div  class="container" style="text-align: center;">{{ values | safe }}</div>
+                    <div  class="container">{{ values | safe }}</div>
               </li>
               </ul>   
             </ul>
