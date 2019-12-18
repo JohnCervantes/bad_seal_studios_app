@@ -28,6 +28,8 @@
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
   .article-title {

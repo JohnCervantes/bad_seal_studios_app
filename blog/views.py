@@ -15,11 +15,21 @@ def about(request):
         match.append(x.text)
     values = match[1].split()
     progress = str( (int(values[0]) / int(values[-1])) * 100 )
+
+
+    source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
+    soup = BeautifulSoup(source, 'lxml')
+    match2 = []
+    for x in soup.find_all("div", {"class": "badges-wrap"}):
+        match2.append(x)
+    values = str(match2[0])
+
     context = {
         'leet': match[1],
         'progress':  progress,
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
-        'title':'About'
+        'title':'About',
+        'values': values
     }
     
     return render(request, 'blog/about.html', context)
