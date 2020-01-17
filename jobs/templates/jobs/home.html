@@ -5,6 +5,7 @@
 <h6 style="text-align: center; color:white">Complete - {{ complete }} &emsp; In Progress - {{ in_progress }}</h5>
     <br>
     {% for project in projects %}
+    <div>
     <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
         <h class="card-body" style="height: 206px">
