@@ -9,8 +9,8 @@
         <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
         <div class="card-body" style="height: 206px">
             <h5 class="card-title p-0">{{ project.title }}
-                <br>
-                <p class="card-text" style="text-align: left; margin: 5px">{{ project.summary | safe }}</p>
+                <br><br>
+                <p class="card-text" style="text-align: left;">{{ project.summary | safe }}</p>
          </div>
         <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
             {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
