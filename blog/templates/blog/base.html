@@ -72,8 +72,12 @@
     </nav>
   </header>
   <main role="main" class="container" style="line-height: 1.5em; font-size: 16px; font-family: Roboto; max-width: 100%;">
-<div style="display:inline-block;">
+<div style="display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;">
 
+  <div>
   <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
     <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
     <h class="card-body" style="height: 206px">
@@ -85,8 +89,8 @@
         {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
             href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
     </div>
-
-
+  </div>
+<div>
     <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
       <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
       <h class="card-body" style="height: 206px">
@@ -97,9 +101,9 @@
       <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
           {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
               href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
-      </div>
-
-
+      </div>  
+</div>
+<div>
       <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
         <h class="card-body" style="height: 206px">
@@ -111,7 +115,7 @@
             {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
                 href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
         </div>
-
+</div>
 
 
 </div>
