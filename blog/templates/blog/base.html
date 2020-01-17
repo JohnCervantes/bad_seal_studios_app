@@ -74,7 +74,7 @@
   <main role="main" class="container" style="line-height: 1.5em; font-size: 16px; font-family: Roboto; max-width: 100%;">
     <div class="row" style="width: 100%; margin: 0 auto; padding: 20px;">
       <div
-        {% if title == 'About' or title == 'Blog'  %} class="col-md-8" {% else %} class="col-md-12" {% endif %}>
+        {% if title == 'About' or title == 'Blog'  %} class="col-md-6" {% else %} class="col-md-12" {% endif %}>
         {% if messages %}
         {% for message in messages%}
         <div class="alert alert-{{ message.tags }}">
@@ -85,7 +85,7 @@
         {% block content %}{% endblock %}
       </div>
       {% if title == 'About' or title == 'Blog'  %}
-      <div class="col-md-4" >
+      <div class="col-md-3" >
         <div class="content-section" style="text-decoration: none;">
             <ul class="list-group">
               <li class="list-group-item list-group-item-light">Latest Posts</li>
