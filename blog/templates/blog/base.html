@@ -96,37 +96,18 @@ justify-content: center;
 align-items: center; margin-bottom: 20px ;">
 
 
-<div class="img-hover-zoom--colorize img img-hover-zoom--colorize:hover img" style="width: 20rem; height: 150 px;">
-  <img src="/assets/images/hacker.png" alt="This zooms-in really well and smooth" width="300" height="300">
+<div class="img-hover-zoom--colorize img img-hover-zoom--colorize:hover img">
+  <img src="/assets/images/hacker.png" alt="This zooms-in really well and smooth" width="300" height="180">
 </div>
 
+<div class="img-hover-zoom--colorize img img-hover-zoom--colorize:hover img">
+  <img src="/assets/images/paperboylogo.png" alt="This zooms-in really well and smooth" width="300" height="180">
+</div>
 
-<div>
-    <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
-      <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
-      <h class="card-body" style="height: 206px">
-          <h5 class="card-title p-0">{{ project.title }}</h5>
-              <br>
-              <p class="card-text" style="text-align: left; margin: 5px">{{ project.summary | safe }}</p>
-      </div>
-      <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
-          {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
-              href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
-      </div>  
+<div class="img-hover-zoom--colorize img img-hover-zoom--colorize:hover img">
+  <img src="/assets/images/hnlogo_0vmD3Q9.png" alt="This zooms-in really well and smooth" width="300" height="180">
 </div>
-<div>
-      <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
-        <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
-        <h class="card-body" style="height: 206px">
-            <h5 class="card-title p-0">{{ project.title }}</h5>
-                <br>
-                <p class="card-text" style="text-align: left; margin: 5px">{{ project.summary | safe }}</p>
-        </div>
-        <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
-            {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
-                href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
-        </div>
-</div>
+
 
 
 </div>
