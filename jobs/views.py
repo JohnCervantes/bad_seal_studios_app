@@ -11,7 +11,6 @@ class PostListViews(ListView):
     context_object_name = 'projects'
     # ascending is ['date_posted'] . descending is ['-date_posted']
     ordering = ['-date_posted']
-    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super(PostListViews,self).get_context_data(**kwargs)
