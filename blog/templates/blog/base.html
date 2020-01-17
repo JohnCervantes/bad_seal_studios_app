@@ -30,6 +30,22 @@
     text-anchor: middle;
 }
 
+/* [1] The container */
+.img-hover-zoom {
+  height: 300px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
   
   </style>
 </head>
@@ -78,19 +94,11 @@ justify-content: center;
 align-items: center;">
 
 
-  <div>
-  <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
-    <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
-    <h class="card-body" style="height: 206px">
-        <h5 class="card-title p-0">{{ project.title }}</h5>
-            <br>
-            <p class="card-text" style="text-align: left; margin: 5px">{{ project.summary | safe }}</p>
-    </div>
-    <div class="card-footer text-muted pb-3 pt-2"><strong>{{project.technologies}}</strong><br><br>Status:
-        {{ project.status }} {% if project.status == 'Complete' %} <a style="float:right;"
-            href="{% url 'project_details' project.id %}" class="btn btn-info btn-sm">View Details</a> {% endif %}
-    </div>
-  </div>
+<div class="img-hover-zoom" style="width: 20rem; height: 206px;">
+  <img src="/assets/images/hacker.png" alt="This zooms-in really well and smooth">
+</div>
+
+
 <div>
     <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
       <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
