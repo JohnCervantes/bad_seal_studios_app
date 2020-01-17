@@ -4,12 +4,11 @@
 <h1 style="text-align: center; color:white">Projects ({{ count }})</h1>
 <h6 style="text-align: center; color:white">Complete - {{ complete }} &emsp; In Progress - {{ in_progress }}</h5>
     <br>
-    <div>
     {% for project in projects %}
     <div class="card" style="display:inline-block; width: 20rem; margin:10px;">
         <img class="card-img-top" src="{{project.image.url}}" style="height: 140px;" alt="Card image cap">
-        <h class="card-body" style="height: 206px">
-            <h5 class="card-title p-0">{{ project.title }}</h5>
+        <div class="card-body" style="height: 206px">
+            <h5 class="card-title p-0">{{ project.title }}</div>
                 <br>
                 <p class="card-text" style="text-align: left; margin: 5px">{{ project.summary | safe }}</p>
         </div>
