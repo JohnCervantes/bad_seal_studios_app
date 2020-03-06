@@ -138,8 +138,7 @@ align-items: center; margin: 20px ; background-color:black; padding-top:30px; pa
                   <br>
                 {% for news in latest_news %}
                 <li><a href="{% url 'blog_details' news.id  %}">
-                    <p><u>{{ news.title }}</u></p>
-      
+                    <u>{{ news.title }}</u>
                   </a></li>
                 {% endfor %}
               </ul>
