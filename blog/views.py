@@ -20,12 +20,12 @@ def about(request):
     source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
     soup = BeautifulSoup(source, 'lxml')
     match2 = []
-    for x in soup.find_all("div", {"class": "badges-wrap"}):
-        match2.append(x)
-    values2 = str(match2[0])
+#     for x in soup.find_all("div", {"class": "badges-wrap"}):
+#         match2.append(x)
+#     values2 = str(match2[0])
 
     context = {
-        'values': values2,
+#         'values': values2,
         'leet': match[1],
         'progress':  progress,
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
