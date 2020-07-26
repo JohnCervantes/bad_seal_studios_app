@@ -54,9 +54,9 @@ class PostListViews(ListView):
     source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
     soup = BeautifulSoup(source, 'lxml')
     match2 = []
-    for x in soup.find_all("div", {"class": "badges-wrap"}):
-        match2.append(x)
-    values = str(match2[0])
+    # for x in soup.find_all("div", {"class": "badges-wrap"}):
+    #    match2.append(x)
+    # values = str(match2[0])
   
 
     def get_context_data(self, **kwargs):
@@ -66,7 +66,7 @@ class PostListViews(ListView):
             '-pub_date').values('title', 'id')[0:3]
         context['leet'] = self.match[1]
         context['progress'] = self.progress
-        context['values'] = self.values
+      # context['values'] = self.values
         return context
 
 
