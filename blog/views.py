@@ -10,11 +10,11 @@ import requests
 def about(request):
     source = requests.get('https://leetcode.com/vocalists/').text
     soup = BeautifulSoup(source, 'lxml')
-    match = []
-    for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
-        match.append(x.text)
-    values = match[1].split()
-    progress = str( (int(values[0]) / int(values[-1])) * 100 )
+    # match = []
+    # for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
+    #     match.append(x.text)
+    # values = match[1].split()
+    # progress = str( (int(values[0]) / int(values[-1])) * 100 )
 
 
     source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
@@ -26,8 +26,8 @@ def about(request):
 
     context = {
 #         'values': values2,
-        'leet': match[1],
-        'progress':  progress,
+#       'leet': match[1],
+#        'progress':  progress,
         'latest_news': Blog.objects.all().order_by('-pub_date').values('title', 'id')[0:3],
         'title':'About'
     }
@@ -65,8 +65,8 @@ class PostListViews(ListView):
         context['title'] = 'Blog'
         context['latest_news'] = self.model.objects.all().order_by(
             '-pub_date').values('title', 'id')[0:3]
-        context['leet'] = self.match[1]
-        context['progress'] = self.progress
+ #       context['leet'] = self.match[1]
+ #       context['progress'] = self.progress
       # context['values'] = self.values
         return context
 
