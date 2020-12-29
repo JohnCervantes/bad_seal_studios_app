@@ -45,11 +45,12 @@ class PostListViews(ListView):
     paginate_by = 5
     source = requests.get('https://leetcode.com/vocalists/').text
     soup = BeautifulSoup(source, 'lxml')
-    match = []
-    for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
-        match.append(x.text)
-    values = match[1].split()
-    progress = str( (int(values[0]) / int(values[-1])) * 100 )
+    # TODO: 
+    # match = []
+    # for x in soup.find_all("span", {"class": "badge progress-bar-success"}):
+    #     match.append(x.text)
+    # values = match[1].split()
+    # progress = str( (int(values[0]) / int(values[-1])) * 100 )
 
     source = requests.get('https://www.hackerrank.com/JohnCervantes?hr_r=1').text
     soup = BeautifulSoup(source, 'lxml')
